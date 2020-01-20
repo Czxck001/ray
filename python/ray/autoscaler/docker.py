@@ -68,8 +68,8 @@ def with_docker_exec(cmds, container_name, env_vars=None):
         env_str = " ".join(
             ["-e {env}=${env}".format(env=env) for env in env_vars])
     return [
-        "docker exec {} {} /bin/sh -c {} ".format(env_str, container_name,
-                                                  quote(cmd)) for cmd in cmds
+        "docker exec {} {} {} ".format(env_str, container_name,
+                                       quote(cmd)) for cmd in cmds
     ]
 
 
